@@ -118,14 +118,11 @@ public class App {
     public static final String BOOK_OF_IDORES = "Book of Idores";
 
     public static void main(String[] args) {
-        // populate the in-memory database
         initData();
-        // query the data using the service
         queryData();
     }
 
     public static void initData() {
-        // spells
         var spell1 = new Spell("Ice dart");
         var spell2 = new Spell("Invisibility");
         var spell3 = new Spell("Stun bolt");
@@ -162,7 +159,6 @@ public class App {
         spellDao.persist(spell16);
         spellDao.persist(spell17);
 
-        // spellbooks
         var spellbookDao = new SpellbookDaoImpl();
         var spellbook1 = new Spellbook("Book of Orgymon");
         spellbookDao.persist(spellbook1);
@@ -203,7 +199,6 @@ public class App {
         spellbook7.addSpell(spell17);
         spellbookDao.merge(spellbook7);
 
-        // wizards
         var wizardDao = new WizardDaoImpl();
         var wizard1 = new Wizard("Aderlard Boud");
         wizardDao.persist(wizard1);
