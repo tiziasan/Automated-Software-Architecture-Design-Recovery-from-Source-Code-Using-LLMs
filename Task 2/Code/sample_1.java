@@ -73,11 +73,6 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 public class SecurityConfig {
-    //LDAP or Database
-    //In Memory
-
-    //InMemoryUserDetailsManager
-    //InMemoryUserDetailsManager(UserDetails... users)
     @Bean
     public InMemoryUserDetailsManager createUserDetailsManager() {
         UserDetails userDetails1 = createNewUser("admin1", "secret1");
@@ -101,10 +96,7 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
-    //All URLs are protected
-    //A login form is shown for unauthorized requests
-    //CSRF disable
-    //Frames
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(auth -> auth.anyRequest().authenticated());
@@ -132,7 +124,6 @@ public class StudentService {
     private static final List<Student> students = new ArrayList<>();
 
     static {
-        // Initialize Data
         Course courseOne = new Course("Course1", "Spring", "10 Steps",
                 List.of("Learn Maven", "Import Project", "First Example", "Second Example"));
 
